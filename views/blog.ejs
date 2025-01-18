@@ -64,7 +64,7 @@
                     <div class="comment-content">
                         <p><%= comment.content %></p>
                     </div>
-                    <% if (locals.user._id==comment.createdBy._id) { %>
+                    <% if (user&&user._id == comment.createdBy._id) { %>
 
                         <a href="/blog/comment/edit/<%= comment._id %>" class="btn btn-primary mt-auto">Update</a>
                         <a href="/blog/comment/delete/<%= comment._id %>" class="btn btn-danger mt-auto">Delete</a>
