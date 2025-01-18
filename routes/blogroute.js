@@ -1,5 +1,5 @@
 const {Router}=require("express");
-const {showAddBlogPage,handleComment,handleAddBlogPage,handleSingleView}=require("../controller/blog")
+const {showAddBlogPage,handleAddBlogPage,handleSingleView}=require("../controller/blog")
 
 const multer=require("multer")
 
@@ -18,7 +18,7 @@ const upload = multer({ storage: storage })
 const router=Router();
 router.get("/get-blog/:id",handleSingleView)
 
-router.post("/comment/:id",handleComment)
+
 router.get("/add-new",showAddBlogPage)
 router.post("/add-new",upload.single('coverImage'),handleAddBlogPage)
 module.exports=router;

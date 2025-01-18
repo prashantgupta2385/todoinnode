@@ -3,6 +3,7 @@ const path=require("path")
 const staticRouter=require("./routes/staticroute")
 const userRouter=require("./routes/user");
 const blogRouter=require("./routes/blogroute");
+const commentRouter=require("./routes/commentroute");
 const {mongoose}=require("mongoose")
 const cookieParser=require("cookie-parser");
 
@@ -23,6 +24,7 @@ app.use(checkForAuthenticationCookie('token'))
 app.use("/",staticRouter)
 app.use('/user',userRouter)
 app.use("/blog",blogRouter)
+app.use("/blog/comment",commentRouter)
 
 
 

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <%- include("./partials/head")%>
+    <title>edit-comment</title>
+</head>
+<body>
+  <%- include("./partials/nav")%>
+    <div class ="container mt-4">
+        <form action="/blog/comment/update/<%= id %>" method="post">
+            
+            <div class="mb-3">
+                <div class="comment-content">
+                    <label for="content">comment-content</label>
+                    ><textarea name="content"></textarea>
+                </div>
+            </div>
+            
+            
+            <button type="submit" class="btn btn-primary">Save</button>
+          </form>
+    </div>
+
+
+    <%- include("./partials/scripts")%>
+</body>
+</html>
