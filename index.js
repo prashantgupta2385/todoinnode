@@ -4,6 +4,7 @@ const staticRouter=require("./routes/staticroute")
 const userRouter=require("./routes/user");
 const blogRouter=require("./routes/blogroute");
 const commentRouter=require("./routes/commentroute");
+const historyRouter=require("./routes/historyroute");
 const {mongoose}=require("mongoose")
 const cookieParser=require("cookie-parser");
 
@@ -25,7 +26,7 @@ app.use("/",staticRouter)
 app.use('/user',userRouter)
 app.use("/blog",blogRouter)
 app.use("/blog/comment",commentRouter)
-
+app.use("/user/history",historyRouter)
 
 
 app.listen(PORT,()=>console.log(`server strted at port ${PORT}`))

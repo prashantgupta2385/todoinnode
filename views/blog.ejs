@@ -26,6 +26,9 @@
            
             <div class="mb-4 container mt-4">
                 <img src="<%= blog.createdBy.profileImageURL %>" width="50px"   alt="Blog Cover Image" class="img-fluid rounded"><%= blog.createdBy.fullName%>
+                <% if (user&&user._id == blog.createdBy._id) { %>
+                    <a href="/blog/delete/<%= blog._id %>" class="btn btn-danger mt-auto">Delete</a>
+                <% } %>
             </div>
         </div>
     </div>

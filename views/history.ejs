@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head") %>
+    <title>User Comment History</title>
+</head>
+<body>
+    <%- include("./partials/nav") %>
+
+
+    <div class="container mt-5">
+        <h1>User Comment History</h1>
+        
+        <% if (history && history.length > 0) { %> <!-- Check if history is not empty -->
+            <% history.forEach(item => { %>
+                <div class="history-item">
+                    <h3>Blog Title: <%= item.blogId ? item.blogId.title : 'No title available' %></h3> <!-- Handling if blogId is undefined -->
+                    <p>Comment: <%= item.commentText %></p>
+                    <p>Time: <%= item.timestamp ? item.timestamp.toDateString() : 'No timestamp available' %></p> <!-- Handle missing timestamp -->
+                </div>
+                <hr>
+            <% }) %>
+        <% } else { %>
+            <p>No comment history found for this user.</p> <!-- Message when history is empty -->
+        <% } %>
+    </div>
+
+    <%- include("./partials/scripts") %>
+
+</body>
+</html>
