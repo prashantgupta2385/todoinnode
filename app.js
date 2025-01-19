@@ -7,12 +7,13 @@ const commentRouter=require("./routes/commentroute");
 const historyRouter=require("./routes/historyroute");
 const {mongoose}=require("mongoose")
 const cookieParser=require("cookie-parser");
+require('dotenv').config();
 
 const { checkForAuthenticationCookie } = require("./middleware/authentication");
-const PORT=8000;
+const PORT=process.env.PORT;
 const app=express()
 
-mongoose.connect("mongodb://127.0.0.1:27017/blogify").then(()=>{console.log("MongoDB sucessfully connected")})
+mongoose.connect(process.env.MONGO_URL).then(()=>{console.log("MongoDB sucessfully connected")})
  .catch((err)=>{console.log("this is the error",err)})
 app.set("view engine","ejs");
 app.set("views",path.resolve("./views"))
